@@ -1,0 +1,33 @@
+apply from: 'dependencies.gradle'
+
+buildscript {
+  apply from: 'dependencies.gradle'
+  repositories {
+    google()
+    jcenter()
+    mavenCentral()
+  }
+  dependencies {
+    classpath libraries.androidPlugin
+    classpath libraries.buildScanPlugin
+    classpath libraries.kotlinPlugin
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+    mavenCentral()
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
+
+apply plugin: 'com.gradle.build-scan'
+buildScan {
+  termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+  termsOfServiceAgree = 'yes'
+}
