@@ -1,11 +1,10 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
   compileSdkVersion versions.compileSdk
   defaultConfig {
-    applicationId "me.cherry.assetcase"
     minSdkVersion versions.minSdk
     targetSdkVersion versions.targetSdk
     versionCode versions.versionCode
@@ -18,11 +17,14 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
+
+  androidExtensions {
+    experimental = true
+  }
 }
 
 dependencies {
-  api project (':feature-login:api')
-  implementation project (':feature-login:impl')
+  api project(':feature-login:api')
 
   implementation libraries.kotlinStdLib
   implementation libraries.appCompat
