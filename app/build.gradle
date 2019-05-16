@@ -21,13 +21,13 @@ android {
 }
 
 dependencies {
-  api project (':feature-login:api')
   implementation project (':feature-login:impl')
 
   implementation libraries.kotlinStdLib
   implementation libraries.appCompat
   implementation libraries.androidKtx
   implementation libraries.constraintLayout
+  implementation libraries.material
 }
 repositories {
   mavenCentral()

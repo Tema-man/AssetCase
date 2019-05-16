@@ -8,6 +8,10 @@ class App : Application() {
 
   override fun onCreate() {
     super.onCreate()
-    Injector.initialize(this)
+    injector = Injector(this)
+  }
+
+  companion object{
+    lateinit var injector: Injector
   }
 }

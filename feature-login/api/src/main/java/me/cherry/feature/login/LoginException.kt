@@ -1,14 +1,9 @@
 package me.cherry.feature.login
 
 
-class LoginException(
-    val reason: Reason
-) : Exception() {
-
-  enum class Reason {
-    WRONG_PASSWORD,
-    WRONG_LOGIN,
-    ACCESS_DENIED,
-    ATTEMTPS_EXCEEDED
-  }
+sealed class LoginException(val code: Int) : Exception() {
+  object WrongPassword : LoginException(400)
+  object WrongLogin : LoginException(401)
+  object AccessDenied : LoginException(402)
+  object AttemptsExceeded : LoginException(403)
 }

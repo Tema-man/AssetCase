@@ -3,8 +3,6 @@ package me.cherry.assetcase
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import me.cherry.assetcase.di.Injector
-import me.cherry.feature.login.LoginFeatureApiImpl
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +17,7 @@ class MainActivity : AppCompatActivity() {
       return
     }
 
-    val fragment = Injector.loginFeatureApi.getFragment()
+    val fragment = App.injector.loginApi.getLoginScreen()
     openFragment(fragment)
   }
 

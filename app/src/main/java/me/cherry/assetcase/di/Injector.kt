@@ -1,17 +1,21 @@
 package me.cherry.assetcase.di
 
 import me.cherry.assetcase.App
-import me.cherry.feature.login.LoginFeatureApi
-import me.cherry.feature.login.LoginFeatureApiImpl
+import me.cherry.assetcase.AppConfiguratior
+import me.cherry.feature.login.Configurator
+import me.cherry.feature.login.LoginApi
+import me.cherry.feature.login.LoginDependencies
+import me.cherry.feature.login.di.LoginFeatureApiImpl
 
 
-object Injector {
+class Injector(
+    val application: App
+) {
 
-  private lateinit var application: App
+  val configurator: Configurator by lazy { AppConfiguratior() }
 
-  fun initialize(app: App) {
-    application = app
-  }
+  val loginLocator: LoginDependencies by lazy { LoginLocator(configurator) }
 
-  val loginFeatureApi: LoginFeatureApi = LoginFeatureApiImpl()
+  val loginApi: LoginApi by lazy { LoginFeatureApiImpl(loginLocator) }
+
 }

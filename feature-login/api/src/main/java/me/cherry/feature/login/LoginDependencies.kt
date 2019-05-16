@@ -1,6 +1,6 @@
 package me.cherry.feature.login
 
 
-interface LoginFeatureInjector {
+interface LoginDependencies {
   val configurator: Configurator
 }

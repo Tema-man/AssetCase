@@ -3,5 +3,6 @@ package me.cherry.feature.login
 
 interface Configurator {
   val apiHost: String
-  val attemptsCount: Int
+  val maxLoginAttemptsCount: Int
+  val loginAttemptsDelayMills: Long
 }
