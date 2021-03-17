@@ -1,32 +1,10 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-
-android {
-  compileSdkVersion versions.compileSdk
-  defaultConfig {
-    minSdkVersion versions.minSdk
-    targetSdkVersion versions.targetSdk
-    versionCode versions.versionCode
-    versionName versionCode.toString()
-  }
-
-  androidExtensions {
-    experimental = true
-  }
-}
+apply from: '../../default_module_setup.gradle'
 
 dependencies {
   api project(':feature-login:api')
 
-  implementation libraries.kotlinStdLib
-  implementation libraries.appCompat
-  implementation libraries.androidKtx
   implementation libraries.constraintLayout
   implementation libraries.material
   implementation libraries.coroutines
   implementation libraries.coroutinesAndroid
-}
-repositories {
-  mavenCentral()
 }
