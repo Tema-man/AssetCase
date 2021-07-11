@@ -1,0 +1,49 @@
+apply from: "${rootDir}/app_dependencies.gradle"
+
+android {
+  defaultConfig {
+    compileSdk versions.compileSdk
+    minSdk versions.minSdk
+    targetSdk versions.targetSdk
+
+    versionCode 1
+    versionName "1.0"
+
+    vectorDrawables.useSupportLibrary = true
+  }
+
+  buildTypes{
+    debug
+    release
+  }
+
+  sourceSets{
+    main.java.srcDirs += 'src/main/kotlin'
+    test.java.srcDirs += 'src/test/kotlin'
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+
+  buildFeatures {
+    compose true
+  }
+
+  composeOptions {
+    kotlinCompilerExtensionVersion '1.0.0-beta01'
+  }
+}
+
+ext.addDependencies = { dependenciesList ->
+  dependencies {
+    dependenciesList.forEach {
+      add(it.configuration, it.dependency, it.options)
+    }
+  }
+}

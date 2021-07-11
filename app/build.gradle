@@ -1,20 +1,32 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+plugins {
+  id 'com.android.application'
+  id 'org.jetbrains.kotlin.android'
+}
 
+apply from: "${rootDir}/app_dependencies.gradle"
 
 android {
-  compileSdkVersion versions.compileSdk
+  compileSdk versions.compileSdk
+
   defaultConfig {
-    applicationId "me.cherry.assetcase"
-    minSdkVersion versions.minSdk
-    targetSdkVersion versions.targetSdk
+    applicationId "codes.cherry.assetcase"
+    minSdk versions.minSdk
+    targetSdk versions.targetSdk
     versionCode versions.versionCode
-    versionName versionCode.toString()
+    versionName versions.versionCode.toString()
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    vectorDrawables.useSupportLibrary true
   }
 
-  buildFeatures {
-    // Enables Jetpack Compose for this module
-    compose true
+  buildTypes {
+    debug {
+      minifyEnabled false
+    }
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
   }
 
   compileOptions {
@@ -23,34 +35,20 @@ android {
   }
 
   kotlinOptions {
-    jvmTarget = "1.8"
+    jvmTarget = '1.8'
+  }
+
+  buildFeatures {
+    compose true
   }
 
   composeOptions {
-    kotlinCompilerExtensionVersion '1.0.0-beta01'
-  }
-
-  buildTypes {
-    debug{
-      minifyEnabled false
-    }
-
-    release {
-      minifyEnabled true
-      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-    }
+    kotlinCompilerExtensionVersion versions.compose
   }
 }
 
 dependencies {
-  implementation project (':feature-login:impl')
-
-  implementation libraries.kotlinStdLib
-  implementation libraries.appCompat
-  implementation libraries.androidKtx
-  implementation libraries.constraintLayout
-  implementation libraries.material
-}
-repositories {
-  mavenCentral()
+  appDependencies.forEach {
+    add(it.configuration, it.dependency, it.options)
+  }
 }

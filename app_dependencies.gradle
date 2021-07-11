@@ -1,0 +1,23 @@
+apply from: "${rootDir}/libraries.gradle"
+
+ext {
+
+  testDependencies = [
+      [configuration: "testImplementation", dependency: libraries.jUnit],
+      [configuration: "androidTestImplementation", dependency: libraries.androidJunit],
+      [configuration: "androidTestImplementation", dependency: libraries.espressoCore],
+      [configuration: "androidTestImplementation", dependency: libraries.composeJunit],
+  ]
+
+  appDependencies = testDependencies + [
+      [configuration: "implementation", dependency: libraries.androidxCore],
+      [configuration: "implementation", dependency: libraries.appCompat],
+      [configuration: "implementation", dependency: libraries.material],
+      [configuration: "implementation", dependency: libraries.lifecycleRuntime],
+
+      [configuration: "implementation", dependency: libraries.composeUi],
+      [configuration: "implementation", dependency: libraries.composeMaterial],
+      [configuration: "implementation", dependency: libraries.composeTools],
+      [configuration: "implementation", dependency: libraries.composeActivity],
+  ]
+}

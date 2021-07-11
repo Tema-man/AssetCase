@@ -1,0 +1,61 @@
+ext.versions = [
+    versionCode        : 1,
+    compileSdk         : 30,
+    targetSdk          : 30,
+    minSdk             : 21,
+
+    kotlin             : '1.5.10',
+    androidGradlePlugin: '7.1.0-alpha01',
+    coroutines         : '1.2.1',
+    coroutinesAndroid  : '1.2.1',
+
+    appCompat          : '1.0.2',
+    androidxCore       : '1.0.1',
+    fragment           : '1.0.0',
+    recyclerView       : '1.0.0',
+    constraintLayout   : '1.1.3',
+    material           : '1.1.0-alpha06',
+    lifecycleRuntime   : '2.3.1',
+
+    compose            : '1.0.0-rc01',
+    composeActivity    : '1.3.0-rc1',
+
+    jUnit              : '4.13',
+    androidJunit       : '1.1.3',
+    espresso           : '3.4.0',
+    mockitoKotlin      : '2.0.0',
+    mockitoCore        : '2.25.1',
+]
+
+ext.libraries = [
+    kotlinPlugin     : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+    kotlinStdLib     : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+    androidPlugin    : "com.android.tools.build:gradle:$versions.androidGradlePlugin",
+
+    coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
+    coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesAndroid",
+
+    appCompat        : "androidx.appcompat:appcompat:$versions.appCompat",
+    androidxCore     : "androidx.core:core-ktx:$versions.androidxCore",
+    fragment         : "androidx.fragment:fragment:$versions.fragment",
+    recyclerView     : "androidx.recyclerview:recyclerview:$versions.recyclerView",
+    constraintLayout : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+    material         : "com.google.android.material:material:$versions.material",
+
+    composeUi        : "androidx.compose.ui:ui:$versions.compose",
+    composeTools     : "androidx.compose.ui:ui-tooling:$versions.compose",
+    composeMaterial  : "androidx.compose.material:material:$versions.compose",
+    composeActivity  : "androidx.activity:activity-compose:$versions.composeActivity",
+    composeFoundation: "androidx.compose.foundation:foundation:$versions.compose",
+    composeViewModels: "androidx.lifecycle:lifecycle-viewmodel-compose:$versions.compose",
+    lifecycleRuntime : "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycleRuntime",
+
+    jUnit            : "junit:junit:$versions.jUnit",
+    androidJunit     : "androidx.test.ext:junit:",
+    espressoCore     : "androidx.test.espresso:espresso-core:$versions.espresso",
+    kotlinTestJunit  : "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin",
+    mockitoKotlin    : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitoKotlin",
+    mockitoCore      : "org.mockito:mockito-core:$versions.mockitoCore",
+    composeJunit     : "androidx.compose.ui:ui-test-junit4:$versions.compose"
+]
+
